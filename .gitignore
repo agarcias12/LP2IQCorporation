@@ -33,9 +33,9 @@ hs_err_pid*
 # Edit at https://www.gitignore.io/?templates=netbeans,visualstudiocode
 
 ### NetBeans ###
-**/nbproject/private/
-**/nbproject/Makefile-*.mk
-**/nbproject/Package-*.bash
+nbproject/private/
+nbproject/Makefile-*.mk
+nbproject/Package-*.bash
 build/
 nbbuild/
 dist/
