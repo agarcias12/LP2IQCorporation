@@ -18,7 +18,7 @@ import pe.edu.pucp.inf.iqgesttec.model.bean.Employee;
 public class MySQLEmployee implements DAOEmployee{
 
     @Override
-    public int CreateEmployee(Employee emp, int idCas, int idUser) {
+    public int CreateEmployee(Employee emp, int idCas) {
         int result = 0;
             try{
         Class.forName("com.mysql.cj.jdbc.Driver");
