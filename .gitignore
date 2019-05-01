@@ -54,3 +54,5 @@ nbdist/
 .history
 
 # End of https://www.gitignore.io/api/netbeans,visualstudiocode
+
+.vscode
