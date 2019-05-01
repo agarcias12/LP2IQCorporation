@@ -1,5 +1,12 @@
 <pe.edu.pucp.inf.iqgesttec.config.ConnectionParameters>
+<<<<<<< HEAD
     <url>jdbc:mysql://quilla.lab.inf.pucp.edu.pe:3306/inf282g2</url>
     <user>inf282g2</user>
     <password>9D2hNa</password>
 </pe.edu.pucp.inf.iqgesttec.config.ConnectionParameters>
+=======
+	<url>jdbc:mysql://quilla.lab.inf.pucp.edu.pe:3306/inf282g2</url>
+	<user>inf282g2</user>
+	<password>9D2hNa</password>
+</pe.edu.pucp.inf.iqgesttec.config.ConnectionParameters>	
+>>>>>>> 1016b4161e0cb91e8312097f14727fde6e736bfa

@@ -14,7 +14,7 @@ public class ConnectionParameters {
     private String url;
     private String user;
     private String password;
-    
+
     public String getUrl() {
         return url;
     }
@@ -38,5 +38,5 @@ public class ConnectionParameters {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
 }

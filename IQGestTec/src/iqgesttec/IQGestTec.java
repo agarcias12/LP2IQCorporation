@@ -47,30 +47,26 @@ public class IQGestTec {
         CAS cas1 = new CAS("Calle Siempre Viva 132","Springfield");
         DAOCas daocas = new MySQLCas();
         idCas = daocas.CreateCas(cas1);
-        User us1 = new User("us2@iq.com","pas2", role1);
-        //se crea un usuario y lo insertamos
-        DAOUser daous = new MySQLUser();
-        //obtiene el ID del usuario insertado
-        idUs = daous.CreateUser(us1);
-        //Obtenemos los valores de los ids
         
         Operator op1 = new Operator(lvl1,"12345678","Juan","Perez","999328763","Calle Siempre Viva 111","Springfield");
         DAOOperator daoemp = new MySQLOperator();
-        daoemp.CreateOperator(op1, idCas, idUs);
+        idUs = daoemp.CreateOperator(op1, idCas);
+        User us1 = new User(idUs,"usuario@iq.com","password", role1);
+        DAOUser daous = new MySQLUser();
+        idUs = daous.CreateUser(us1);
         
-        
-        User us2 = new User("jpichuisa@iq.com","password", role3);
-        idUs = daous.CreateUser(us2);
-        Technician tec1 = new Technician(ef1,"12345678","Johan","Pichuisa","999328763","Avenida el Alamo","Callao");
-        DAOTechnician daotech = new MySQLTechnician();
-        daotech.CreateTechnician(tec1, idCas, idUs);
-        
-        User us3 = new User("rdiaz@iq.com","password", role3);
-        idUs = daous.CreateUser(us3);
-        Technician tec2 = new Technician(ef2,"12345678","Roberth","Diaz","999328763","Mirones","Lima");
-        daotech.CreateTechnician(tec2, idCas, idUs);
-        
-        daotech.ModifyEfficiency(idUs,ef1);
+//        User us2 = new User("jpichuisa@iq.com","password", role3);
+//        idUs = daous.CreateUser(us2);
+//        Technician tec1 = new Technician(ef1,"12345678","Johan","Pichuisa","999328763","Avenida el Alamo","Callao");
+//        DAOTechnician daotech = new MySQLTechnician();
+//        daotech.CreateTechnician(tec1, idCas, idUs);
+//        
+//        User us3 = new User("rdiaz@iq.com","password", role3);
+//        idUs = daous.CreateUser(us3);
+//        Technician tec2 = new Technician(ef2,"12345678","Roberth","Diaz","999328763","Mirones","Lima");
+//        daotech.CreateTechnician(tec2, idCas, idUs);
+//        
+//        daotech.ModifyEfficiency(idUs,ef1);
         
         
     }

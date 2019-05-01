@@ -21,48 +21,47 @@ import pe.edu.pucp.inf.iqgesttec.model.bean.Operator;
 public class MySQLOperator implements DAOOperator{
 
     @Override
-    public void CreateOperator(Operator operator, int idCas, int idUser) {
+    public int CreateOperator(Operator operator, int idCas) {
         int result = 0;
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
             "jdbc:mysql://quilla.lab.inf.pucp.edu.pe:3306/a20141717", 
             "a20141717","W94SYS");
-            String sql = "INSERT INTO  `EMPLOYEE` (  `ID_EMPLOYEE` ,  `FID_CAS` ,  "
-                    + "`FID_USER` ,  `NAME` ,  `LASTNAME` ,  `CELLPHONE` ,  `DNI` ,  `ADDRESS` ,  `DISTRICT` )  "
-                    + "VALUES(?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO  `EMPLOYEE` ( `FID_CAS` ,  "
+                    + "`NAME` ,  `LASTNAME` ,  `CELLPHONE` ,  `DNI` ,  `ADDRESS` ,  `DISTRICT` )  "
+                    + "VALUES(?,?,?,?,?,?,?)";
             PreparedStatement ps = 
                     con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1,idUser);
-            ps.setInt(2, idCas);
-            ps.setInt(3, idUser);
-            ps.setString(4, operator.getName());
-            ps.setString(5, operator.getLastname());
-            ps.setString(6, operator.getCellphone());
-            ps.setString(7, operator.getDni());
-            ps.setString(8, operator.getAddress());
-            ps.setString(9, operator.getDistrict());           
+            ps.setInt(1, idCas);
+            ps.setString(2, operator.getName());
+            ps.setString(3, operator.getLastname());
+            ps.setString(4, operator.getCellphone());
+            ps.setString(5, operator.getDni());
+            ps.setString(6, operator.getAddress());
+            ps.setString(7, operator.getDistrict());           
             ps.executeUpdate();
-//            try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
-//                if (generatedKeys.next()) {
-//                    result = generatedKeys.getInt(1);
-//                    operator.setId(generatedKeys.getInt(1));
-//                }
-//                else {
-//                    System.out.println("Error al insertar Employee");
-//                }
-//            }
+            try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    result = generatedKeys.getInt(1);
+                    operator.setId(generatedKeys.getInt(1));
+                }
+                else {
+                    System.out.println("Error al insertar Employee");
+                }
+            }
             sql = "INSERT INTO OPERATOR("
                     + "FID_EMPLOYEE,LEVEL) "
                     + "VALUES(?,?)";
             ps = con.prepareStatement(sql);
-            ps.setInt(1, idUser);
+            ps.setInt(1, result);
             ps.setString(2, operator.getLevel().name());
             ps.executeUpdate();
             con.close();
         }catch(Exception ex){
-            System.out.println(ex.getMessage());
+            ex.printStackTrace();
         }
+        return result;
     }
 
     @Override

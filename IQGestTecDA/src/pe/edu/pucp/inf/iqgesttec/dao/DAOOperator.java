@@ -13,7 +13,7 @@ import pe.edu.pucp.inf.iqgesttec.model.bean.Operator;
  * @author ASUS
  */
 public interface DAOOperator {
-    void CreateOperator(Operator operator, int idCas, int idUser);
+    int CreateOperator(Operator operator, int idCas);
     void ModifyOperator(int idOperator,Operator operator, int idCas);
     void ModifyLevel(int idOperator, Level level);
     void GetReport();

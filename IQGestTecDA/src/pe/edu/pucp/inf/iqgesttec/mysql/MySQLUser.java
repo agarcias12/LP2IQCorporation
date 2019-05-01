@@ -28,13 +28,15 @@ public class MySQLUser implements DAOUser{
             "jdbc:mysql://quilla.lab.inf.pucp.edu.pe:3306/a20141717", 
             "a20141717","W94SYS");
             String sql = "INSERT INTO USER("
-                    + "EMAIL,PASSWORD,ROLE) "
-                    + "VALUES(?,?,?)";
+                    + "ID_USER, FID_EMPLOYEE, EMAIL,PASSWORD,ROLE) "
+                    + "VALUES(?,?,?,?,?)";
             PreparedStatement ps = 
                     con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, user.getEmail());
-            ps.setString(2, user.getPasswordHash());
-            ps.setString(3, user.getRole().name());
+            ps.setInt(1, user.getId());
+            ps.setInt(2, user.getId());
+            ps.setString(3, user.getEmail());
+            ps.setString(4, user.getPasswordHash());
+            ps.setString(5, user.getRole().name());
             ps.executeUpdate();
             try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
