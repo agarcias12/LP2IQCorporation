@@ -26,8 +26,8 @@ public class MySQLOperator implements DAOOperator{
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
-            "jdbc:mysql://quilla.lab.inf.pucp.edu.pe:3306/a20141717", 
-            "a20141717","W94SYS");
+            "jdbc:mysql://quilla.lab.inf.pucp.edu.pe:3306/inf282g2", 
+            "inf282g2","9D2hNa");
             String sql = "INSERT INTO  `EMPLOYEE` ( `FID_CAS` ,  "
                     + "`NAME` ,  `LASTNAME` ,  `CELLPHONE` ,  `DNI` ,  `ADDRESS` ,  `DISTRICT` )  "
                     + "VALUES(?,?,?,?,?,?,?)";
