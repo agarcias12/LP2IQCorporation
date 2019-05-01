@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import pe.edu.pucp.inf.iqgesttec.config.DBManager;
 import pe.edu.pucp.inf.iqgesttec.dao.DAOUser;
 import pe.edu.pucp.inf.iqgesttec.model.bean.User;
 
@@ -23,10 +24,12 @@ public class MySQLUser implements DAOUser{
     public int CreateUser(User user) {
         int result = 0;
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-            "jdbc:mysql://quilla.lab.inf.pucp.edu.pe:3306/a20141717", 
-            "a20141717","W94SYS");
+            DBManager dbmanager = DBManager.getDbManager();
+            Connection con = DriverManager.getConnection(dbmanager.getUrl(), dbmanager.getUser(), dbmanager.getPassword());
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//            Connection con = DriverManager.getConnection(
+//            "jdbc:mysql://quilla.lab.inf.pucp.edu.pe:3306/a20141717", 
+//            "a20141717","W94SYS");
             String sql = "INSERT INTO USER("
                     + "ID_USER, FID_EMPLOYEE, EMAIL,PASSWORD,ROLE) "
                     + "VALUES(?,?,?,?,?)";
@@ -38,15 +41,15 @@ public class MySQLUser implements DAOUser{
             ps.setString(4, user.getPasswordHash());
             ps.setString(5, user.getRole().name());
             ps.executeUpdate();
-            try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
-                if (generatedKeys.next()) {
-                    result = generatedKeys.getInt(1);
-                    user.setId(generatedKeys.getInt(1));
-                }
-                else {
-                    System.out.println("Error al insertar Usuario");
-                }
-            }
+//            try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+//                if (generatedKeys.next()) {
+//                    result = generatedKeys.getInt(1);
+//                    user.setId(generatedKeys.getInt(1));
+//                }
+//                else {
+//                    System.out.println("Error al insertar Usuario");
+//                }
+//            }
             con.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
