@@ -6,6 +6,6 @@ import java.util.ArrayList;
 import pe.edu.pucp.inf.iqgesttec.model.bean.Bussiness;
 
 public interface DAOBussiness {
-    Bussiness queryAll();
-    ArrayList<Bussiness> queryById(int id);
+    Bussiness queryById(int id);
+    ArrayList<Bussiness> queryAll();
 }
