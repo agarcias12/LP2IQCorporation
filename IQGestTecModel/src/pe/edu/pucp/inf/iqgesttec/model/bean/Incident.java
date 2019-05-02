@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package pe.edu.pucp.inf.iqgesttec.model.bean;
+
 import java.util.ArrayList;
 import java.util.Date;
+
 /**
  *
  * @author ASUS
@@ -15,17 +17,17 @@ public class Incident {
     private POS pos;
     private CAS cas;
     private String description;
-    private ArrayList<Solution> solutions;
+    private ArrayList<Visit> visits;
     private Date reportedDate;
 
     public Incident(POS pos, CAS cas, String description, Date reportedDate) {
         this.pos = pos;
         this.description = description;
-        this.solutions = new ArrayList<Solution>();
+        this.visits = new ArrayList<>();
         this.reportedDate = reportedDate;
         this.cas = cas;
     }
-    
+
     /**
      * @return the pos
      */
