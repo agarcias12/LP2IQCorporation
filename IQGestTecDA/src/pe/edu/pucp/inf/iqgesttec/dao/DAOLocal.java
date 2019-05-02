@@ -8,9 +8,6 @@ import pe.edu.pucp.inf.iqgesttec.model.bean.Local;
 import pe.edu.pucp.inf.iqgesttec.model.bean.POS;
 
 public interface DAOLocal {
-    void CrearLocal(Local local);
-    void ModifyLocal(int idLocal, Local local);
-    String ConsultarLocal(int idLocal);
-    String ConsultarPOS();
-    void addPOS(POS pos);
+    Local queryById(int id);
+    ArrayList<Local>  queryAll();
 }
