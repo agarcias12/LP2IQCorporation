@@ -13,7 +13,19 @@ public class Bussiness {
     private int id;
     private String name;
     private String ruc;
+    private String activity;
     private ArrayList<Local> locals;
+
+    public Bussiness() {
+    }
+
+    public String getActivity() {
+        return activity;
+    }
+
+    public void setActivity(String activity) {
+        this.activity = activity;
+    }
 
     /**
      * @return the name
