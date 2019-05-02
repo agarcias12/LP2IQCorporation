@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import pe.edu.pucp.inf.iqgesttec.config.DBManager;
 import pe.edu.pucp.inf.iqgesttec.dao.DAOCas;
 import pe.edu.pucp.inf.iqgesttec.model.bean.CAS;
@@ -56,6 +57,16 @@ public class MySQLCas implements DAOCas{
 
     @Override
     public int ModifyCas(int idCas, CAS cas) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList<CAS> queryAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public CAS queryById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
