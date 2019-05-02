@@ -41,15 +41,6 @@ public class MySQLUser implements DAOUser{
             ps.setString(4, user.getPasswordHash());
             ps.setString(5, user.getRole().name());
             ps.executeUpdate();
-//            try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
-//                if (generatedKeys.next()) {
-//                    result = generatedKeys.getInt(1);
-//                    user.setId(generatedKeys.getInt(1));
-//                }
-//                else {
-//                    System.out.println("Error al insertar Usuario");
-//                }
-//            }
             con.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());

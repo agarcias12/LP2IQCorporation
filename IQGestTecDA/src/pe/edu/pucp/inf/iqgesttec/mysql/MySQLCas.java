@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import pe.edu.pucp.inf.iqgesttec.config.DBManager;
 import pe.edu.pucp.inf.iqgesttec.dao.DAOCas;
 import pe.edu.pucp.inf.iqgesttec.model.bean.CAS;
@@ -21,42 +22,50 @@ import pe.edu.pucp.inf.iqgesttec.model.bean.CAS;
 public class MySQLCas implements DAOCas{
 
     @Override
-    public int CreateCas(CAS cas) {
+    public ArrayList<CAS> queryAll() {
         int result = 0;
+        ArrayList<CAS> lista = new ArrayList<CAS>();
         try{
             DBManager dbmanager = DBManager.getDbManager();
             Connection con = DriverManager.getConnection(dbmanager.getUrl(), dbmanager.getUser(), dbmanager.getPassword());
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//            Connection con = DriverManager.getConnection(
-//            "jdbc:mysql://quilla.lab.inf.pucp.edu.pe:3306/a20141717", 
-//            "a20141717","W94SYS");
-            String sql = "INSERT INTO CAS("
-                    + "ADDRESS,DISTRICT) "
-                    + "VALUES(?,?)";
+            String sql = "SELECT * FROM CAS";
             PreparedStatement ps = 
-                    con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, cas.getAddress());
-            ps.setString(2, cas.getDistrict());
-            ps.executeUpdate();
-            try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
-                if (generatedKeys.next()) {
-                    result = generatedKeys.getInt(1);
-                    cas.setId(generatedKeys.getInt(1));
-                }
-                else {
-                    System.out.println("Error al insertar CAS");
-                }
+                    con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                String address = rs.getString("ADDRESS");
+                String district = rs.getString("DISTRICT");
+                CAS cas = new CAS(address,district);
+                lista.add(cas);
             }
             con.close();
-        }catch(Exception ex){
+        } catch(Exception ex){
             System.out.println(ex.getMessage());
         }
-        return result;
+        return lista;
     }
 
     @Override
-    public int ModifyCas(int idCas, CAS cas) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public CAS queryById(int id) {
+        int result = 0;
+        String address = "";
+        String district = ""; 
+        try{
+            DBManager dbmanager = DBManager.getDbManager();
+            Connection con = DriverManager.getConnection(dbmanager.getUrl(), dbmanager.getUser(), dbmanager.getPassword());
+            String sql = "SELECT * FROM CAS WHERE ";
+            PreparedStatement ps = 
+                    con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                address = rs.getString("ADDRESS");
+                district = rs.getString("DISTRICT");
+            }
+            con.close();
+        } catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        CAS cas = new CAS(address,district);
+        return cas;
     }
-    
 }
