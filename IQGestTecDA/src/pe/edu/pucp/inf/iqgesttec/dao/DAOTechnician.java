@@ -1,7 +1,7 @@
 
 package pe.edu.pucp.inf.iqgesttec.dao;
 
-import pe.edu.pucp.inf.iqgesttec.model.bean.Efficiency;
+import java.util.ArrayList;
 import pe.edu.pucp.inf.iqgesttec.model.bean.Technician;
 
 public interface DAOTechnician {

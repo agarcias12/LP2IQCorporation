@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import pe.edu.pucp.inf.iqgesttec.config.DBManager;
 import pe.edu.pucp.inf.iqgesttec.dao.DAOUser;
@@ -42,7 +43,7 @@ public class MySQLUser implements DAOUser{
             ps.setString(5, user.getRole().name());
             ps.executeUpdate();
             con.close();
-        }catch(Exception ex){
+        }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }
         return result;

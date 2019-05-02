@@ -3,8 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/PUCP/2019-1/LP2/lp2/LP2IQCorporation/IQGestTecModel/src/pe/edu/pucp/inf/iqgesttec/model/bean/CAS.java</file>
-            <file>file:/E:/PUCP/2019-1/LP2/lp2/LP2IQCorporation/IQGestTecModel/src/pe/edu/pucp/inf/iqgesttec/model/bean/LocalBoss.java</file>
+            <file>file:/E:/PUCP/2019-1/LP2/lp2/LP2IQCorporation/IQGestTecController/src/pe/edu/pucp/inf/iqgesttec/config/DBManager.java</file>
+            <file>file:/E:/PUCP/2019-1/LP2/lp2/LP2IQCorporation/IQGestTecController/src/pe/edu/pucp/inf/iqgesttec/config/ConnectionParameters.java</file>
         </group>
     </open-files>
 </project-private>

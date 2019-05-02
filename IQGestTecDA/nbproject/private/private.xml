@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/E:/PUCP/2019-1/LP2/lp2/LP2IQCorporation/IQGestTecDA/src/pe/edu/pucp/inf/iqgesttec/mysql/MySQLEmployee.java</file>
+            <file>file:/E:/PUCP/2019-1/LP2/lp2/LP2IQCorporation/IQGestTecDA/src/pe/edu/pucp/inf/iqgesttec/mysql/MySQLTechnician.java</file>
+            <file>file:/E:/PUCP/2019-1/LP2/lp2/LP2IQCorporation/IQGestTecDA/src/pe/edu/pucp/inf/iqgesttec/mysql/MySQLUser.java</file>
+            <file>file:/E:/PUCP/2019-1/LP2/lp2/LP2IQCorporation/IQGestTecDA/src/pe/edu/pucp/inf/iqgesttec/dao/DAOCas.java</file>
+            <file>file:/E:/PUCP/2019-1/LP2/lp2/LP2IQCorporation/IQGestTecDA/src/pe/edu/pucp/inf/iqgesttec/dao/DAOUser.java</file>
+            <file>file:/E:/PUCP/2019-1/LP2/lp2/LP2IQCorporation/IQGestTecDA/src/pe/edu/pucp/inf/iqgesttec/mysql/MySQLCas.java</file>
+            <file>file:/E:/PUCP/2019-1/LP2/lp2/LP2IQCorporation/IQGestTecDA/src/pe/edu/pucp/inf/iqgesttec/dao/DAOPOS.java</file>
+            <file>file:/E:/PUCP/2019-1/LP2/lp2/LP2IQCorporation/IQGestTecDA/src/pe/edu/pucp/inf/iqgesttec/dao/DAOLocalBoss.java</file>
+            <file>file:/E:/PUCP/2019-1/LP2/lp2/LP2IQCorporation/IQGestTecDA/src/pe/edu/pucp/inf/iqgesttec/mysql/MySQLBussiness.java</file>
+            <file>file:/E:/PUCP/2019-1/LP2/lp2/LP2IQCorporation/IQGestTecDA/src/pe/edu/pucp/inf/iqgesttec/dao/DAOTechnician.java</file>
+            <file>file:/E:/PUCP/2019-1/LP2/lp2/LP2IQCorporation/IQGestTecDA/src/pe/edu/pucp/inf/iqgesttec/mysql/MySQLComponent.java</file>
+            <file>file:/E:/PUCP/2019-1/LP2/lp2/LP2IQCorporation/IQGestTecDA/src/pe/edu/pucp/inf/iqgesttec/dao/DAOReport.java</file>
+        </group>
     </open-files>
 </project-private>

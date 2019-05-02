@@ -11,7 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import pe.edu.pucp.inf.iqgesttec.config.DBManager;
 import pe.edu.pucp.inf.iqgesttec.dao.DAOLocalBoss;
-import pe.edu.pucp.inf.iqgesttec.model.bean.CAS;
 import pe.edu.pucp.inf.iqgesttec.model.bean.LocalBoss;
 
 /**

@@ -15,64 +15,33 @@ public class Incident {
     private POS pos;
     private CAS cas;
     private String description;
-    private ArrayList<Solution> solutions;
+    private String level;
+    private Operator operator;
+    private ArrayList<Visit> visits;
     private Date reportedDate;
-
+    
     public Incident(POS pos, CAS cas, String description, Date reportedDate) {
         this.pos = pos;
         this.description = description;
-        this.solutions = new ArrayList<Solution>();
+        this.visits = new ArrayList<Visit>();
         this.reportedDate = reportedDate;
         this.cas = cas;
     }
-    
-    /**
-     * @return the pos
-     */
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public POS getPos() {
         return pos;
     }
 
-    /**
-     * @param pos the pos to set
-     */
     public void setPos(POS pos) {
         this.pos = pos;
-    }
-
-    /**
-     * @return the description
-     */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * @param description the description to set
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * @return the solutions
-     */
-    public ArrayList<Solution> getSolutions() {
-        return solutions;
-    }
-
-    /**
-     * @return the reportedDate
-     */
-    public Date getReportedDate() {
-        return reportedDate;
-    }
-
-    /**
-     * @param reportedDate the reportedDate to set
-     */
-    public void setReportedDate(Date reportedDate) {
-        this.reportedDate = reportedDate;
     }
 
     public CAS getCas() {
@@ -83,7 +52,41 @@ public class Incident {
         this.cas = cas;
     }
 
-    public int getId() {
-        return id;
+    public String getDescription() {
+        return description;
     }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public ArrayList<Visit> getVisits() {
+        return visits;
+    }
+
+    public Date getReportedDate() {
+        return reportedDate;
+    }
+
+    public void setReportedDate(Date reportedDate) {
+        this.reportedDate = reportedDate;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public Operator getOperator() {
+        return operator;
+    }
+
+    public void setOperator(Operator operator) {
+        this.operator = operator;
+    }
+    
+    
 }
