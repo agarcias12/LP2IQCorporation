@@ -1,6 +1,7 @@
 
 package pe.edu.pucp.inf.iqgesttec.dao;
 
+import java.util.ArrayList;
 import pe.edu.pucp.inf.iqgesttec.model.bean.Incident;
 
 public interface DAOIncident {
