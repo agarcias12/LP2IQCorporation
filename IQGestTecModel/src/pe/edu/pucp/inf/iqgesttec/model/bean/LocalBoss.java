@@ -66,4 +66,11 @@ public class LocalBoss {
         this.dni = dni;
         this.cellphone = cellphone;
     }
+    public LocalBoss(int id,String name, String lastName, String dni, String cellphone) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.dni = dni;
+        this.cellphone = cellphone;
+    }
 }

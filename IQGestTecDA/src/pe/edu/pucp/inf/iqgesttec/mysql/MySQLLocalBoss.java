@@ -45,7 +45,7 @@ public class MySQLLocalBoss implements DAOLocalBoss {
         } catch(Exception ex){
             System.out.println(ex.getMessage());
         }
-        LocalBoss lb = new LocalBoss(name,lastName,dni,cellphone);
+        LocalBoss lb = new LocalBoss(id,name,lastName,dni,cellphone);
         return lb;
     }
     
