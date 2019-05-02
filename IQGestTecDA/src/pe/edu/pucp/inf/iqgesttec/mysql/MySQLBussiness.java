@@ -36,6 +36,7 @@ public class MySQLBussiness implements DAOBussiness {
                 bussiness.setRuc(rs.getString("RUC"));
                 bussiness.setActivity(rs.getString("ACTIVITY"));
             }
+            conn.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -57,6 +58,7 @@ public class MySQLBussiness implements DAOBussiness {
                 bussiness.setRuc(rs.getString("RUC"));
                 bussiness.setActivity(rs.getString("ACTIVITY"));
             }
+            conn.close();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }
