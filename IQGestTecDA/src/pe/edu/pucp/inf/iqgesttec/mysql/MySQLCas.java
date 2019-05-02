@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import pe.edu.pucp.inf.iqgesttec.config.DBManager;
 import pe.edu.pucp.inf.iqgesttec.dao.DAOCas;
 import pe.edu.pucp.inf.iqgesttec.model.bean.CAS;
 
@@ -23,10 +24,12 @@ public class MySQLCas implements DAOCas{
     public int CreateCas(CAS cas) {
         int result = 0;
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-            "jdbc:mysql://quilla.lab.inf.pucp.edu.pe:3306/a20141717", 
-            "a20141717","W94SYS");
+            DBManager dbmanager = DBManager.getDbManager();
+            Connection con = DriverManager.getConnection(dbmanager.getUrl(), dbmanager.getUser(), dbmanager.getPassword());
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//            Connection con = DriverManager.getConnection(
+//            "jdbc:mysql://quilla.lab.inf.pucp.edu.pe:3306/a20141717", 
+//            "a20141717","W94SYS");
             String sql = "INSERT INTO CAS("
                     + "ADDRESS,DISTRICT) "
                     + "VALUES(?,?)";

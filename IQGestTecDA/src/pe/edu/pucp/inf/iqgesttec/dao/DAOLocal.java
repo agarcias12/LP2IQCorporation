@@ -7,10 +7,6 @@ package pe.edu.pucp.inf.iqgesttec.dao;
 import pe.edu.pucp.inf.iqgesttec.model.bean.Local;
 import pe.edu.pucp.inf.iqgesttec.model.bean.POS;
 
-/**
- *
- * @author ASUS
- */
 public interface DAOLocal {
     void CrearLocal(Local local);
     void ModifyLocal(int idLocal, Local local);
@@ -18,4 +14,3 @@ public interface DAOLocal {
     String ConsultarPOS();
     void addPOS(POS pos);
 }
-
