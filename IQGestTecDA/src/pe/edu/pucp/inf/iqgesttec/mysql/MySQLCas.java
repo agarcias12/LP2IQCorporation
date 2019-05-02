@@ -53,7 +53,7 @@ public class MySQLCas implements DAOCas{
         try{
             DBManager dbmanager = DBManager.getDbManager();
             Connection con = DriverManager.getConnection(dbmanager.getUrl(), dbmanager.getUser(), dbmanager.getPassword());
-            String sql = "SELECT * FROM CAS WHERE ";
+            String sql = "SELECT * FROM CAS WHERE ID_CAS =" + id +";" ;
             PreparedStatement ps = 
                     con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
