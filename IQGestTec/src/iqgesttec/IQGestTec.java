@@ -43,17 +43,8 @@ public class IQGestTec {
         Level lvl1 = Level.CallCenter;
         Efficiency ef1 = Efficiency.High;
         Efficiency ef2 = Efficiency.Medium;
-        //ingresamos un CAS
-        CAS cas1 = new CAS("Calle Siempre Viva 132","Springfield");
-        DAOCas daocas = new MySQLCas();
-        idCas = daocas.CreateCas(cas1);
         
-        Operator op1 = new Operator(lvl1,"12345678","Juan","Perez","999328763","Calle Siempre Viva 111","Springfield");
-        DAOOperator daoemp = new MySQLOperator();
-        idUs = daoemp.CreateOperator(op1, idCas);
-        User us1 = new User(idUs,"usuario@iq.com","password", role1);
-        DAOUser daous = new MySQLUser();
-        idUs = daous.CreateUser(us1);
+        
         
 //        User us2 = new User("jpichuisa@iq.com","password", role3);
 //        idUs = daous.CreateUser(us2);

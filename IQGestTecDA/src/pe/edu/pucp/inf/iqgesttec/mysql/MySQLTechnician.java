@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import pe.edu.pucp.inf.iqgesttec.config.DBManager;
 import pe.edu.pucp.inf.iqgesttec.dao.DAOTechnician;
 import pe.edu.pucp.inf.iqgesttec.model.bean.Efficiency;
 import pe.edu.pucp.inf.iqgesttec.model.bean.Technician;
@@ -23,15 +24,13 @@ public class MySQLTechnician implements DAOTechnician{
     public void CreateTechnician(Technician technician, int idCas, int idUser) {
         int result = 0;
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-            "jdbc:mysql://quilla.lab.inf.pucp.edu.pe:3306/a20141717", 
-            "a20141717","W94SYS");
+            DBManager dbManager = DBManager.getDbManager();
+            Connection conn = DriverManager.getConnection(dbManager.getUrl(),dbManager.getUser(),dbManager.getPassword());
             String sql = "INSERT INTO  `EMPLOYEE` (  `ID_EMPLOYEE` ,  `FID_CAS` ,  "
                     + "`FID_USER` ,  `NAME` ,  `LASTNAME` ,  `CELLPHONE` ,  `DNI` ,  `ADDRESS` ,  `DISTRICT` )  "
                     + "VALUES(?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = 
-                    con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+                    conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1,idUser);
             ps.setInt(2, idCas);
             ps.setInt(3, idUser);
@@ -45,11 +44,11 @@ public class MySQLTechnician implements DAOTechnician{
             sql = "INSERT INTO TECHNICIAN("
                     + "FID_EMPLOYEE,EFFICIENCY) "
                     + "VALUES(?,?)";
-            ps = con.prepareStatement(sql);
+            ps = conn.prepareStatement(sql);
             ps.setInt(1, idUser);
             ps.setString(2, technician.getEfficiency().name());
             ps.executeUpdate();
-            con.close();
+            conn.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
@@ -59,17 +58,15 @@ public class MySQLTechnician implements DAOTechnician{
     public void ModifyTechnician(int idTechnician, Technician technician, int idCas) {
         int result = 0;
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-            "jdbc:mysql://quilla.lab.inf.pucp.edu.pe:3306/a20141717", 
-            "a20141717","W94SYS");
+            DBManager dbManager = DBManager.getDbManager();
+            Connection conn = DriverManager.getConnection(dbManager.getUrl(),dbManager.getUser(),dbManager.getPassword());
             String sql;
             if (idCas != 0){ //estamos modificando el CAS
                 sql = "UPDATE `EMPLOYEE` SET `FID_CAS`  = ?,  "
                     + " `NAME` = ? ,  `LASTNAME` = ?,  `CELLPHONE` = ? ,  `DNI` = ?,"
                         + "  `ADDRESS` = ? ,  `DISTRICT` = ? )  WHERE ID_EMPLOYEE = " + idTechnician + ";";
                 PreparedStatement ps = 
-                    con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+                    conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
                 ps.setInt(1, idCas);
                 ps.setString(2, technician.getName());
                 ps.setString(3, technician.getLastname());
@@ -83,7 +80,7 @@ public class MySQLTechnician implements DAOTechnician{
                     + " `NAME` = ? ,  `LASTNAME` = ?,  `CELLPHONE` = ? ,  `DNI` = ?,"
                         + "  `ADDRESS` = ? ,  `DISTRICT` = ? )  WHERE ID_EMPLOYEE = " + idTechnician + ";";
                 PreparedStatement ps = 
-                    con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+                    conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
                 ps.setString(1, technician.getName());
                 ps.setString(2, technician.getLastname());
                 ps.setString(3, technician.getCellphone());
@@ -92,7 +89,7 @@ public class MySQLTechnician implements DAOTechnician{
                 ps.setString(6, technician.getDistrict());   
                 ps.executeUpdate();
             }
-            con.close();
+            conn.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
@@ -102,15 +99,13 @@ public class MySQLTechnician implements DAOTechnician{
     public void ModifyEfficiency(int idTechnician, Efficiency efficiency) {
         int result = 0;
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-            "jdbc:mysql://quilla.lab.inf.pucp.edu.pe:3306/a20141717", 
-            "a20141717","W94SYS");
+            DBManager dbManager = DBManager.getDbManager();
+            Connection conn = DriverManager.getConnection(dbManager.getUrl(),dbManager.getUser(),dbManager.getPassword());
             String sql = "UPDATE `TECHNICIAN` SET `EFFICIENCY`  = ? WHERE FID_EMPLOYEE = " + idTechnician + ";";
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, efficiency.name());
             ps.executeUpdate();
-            con.close();
+            conn.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
